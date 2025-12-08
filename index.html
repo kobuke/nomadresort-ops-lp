@@ -34,6 +34,8 @@
         }
     </script>
     
+    <link rel="stylesheet" href="style.css">
+    
     <style>
         /* Smooth Scrolling */
         html {
@@ -57,10 +59,20 @@
                 <span class="text-xl font-bold text-main tracking-tight">Nomad Resort Ops</span>
             </div>
             <nav class="hidden md:flex items-center gap-8">
-                <a href="#problem" class="text-gray-600 hover:text-main transition font-medium">課題</a>
-                <a href="#features" class="text-gray-600 hover:text-main transition font-medium">機能</a>
-                <a href="#price" class="text-gray-600 hover:text-main transition font-medium">料金</a>
-                <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <a href="#problem" class="text-gray-600 hover:text-main transition font-medium" data-lang="problem">課題</a>
+                <a href="#features" class="text-gray-600 hover:text-main transition font-medium" data-lang="features">機能</a>
+                <a href="#price" class="text-gray-600 hover:text-main transition font-medium" data-lang="price">料金</a>
+                <div class="language-switcher">
+                    <button class="language-button">
+                        <i class="fa-solid fa-language text-xl"></i>
+                    </button>
+                    <div class="language-dropdown">
+                        <a href="#" onclick="changeLanguage('ja')">日本語</a>
+                        <a href="#" onclick="changeLanguage('en')">English</a>
+                        <a href="#" onclick="changeLanguage('zh')">中文</a>
+                    </div>
+                </div>
+                <a href="#contact" class="bg-accent hover:bg-orange-700 text-white px-6 py-2 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5" data-lang="contact_button">
                     導入相談
                 </a>
             </nav>
@@ -82,23 +94,23 @@
 
         <div class="container mx-auto px-6 relative z-10 text-center md:text-left text-white">
             <div class="max-w-3xl">
-                <span class="inline-block bg-accent/20 text-orange-200 border border-orange-400/30 px-4 py-1 rounded-full text-sm font-bold mb-6 backdrop-blur-md">
+                <span class="inline-block bg-accent/20 text-orange-200 border border-orange-400/30 px-4 py-1 rounded-full text-sm font-bold mb-6 backdrop-blur-md" data-lang="hero_badge">
                     管理コスト90%削減
                 </span>
-                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 tracking-wide">
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6 tracking-wide" data-lang="hero_title">
                     雑務を自動化し、<br>
                     運営に「余裕」を創る。
                 </h1>
-                <p class="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed font-light">
+                <p class="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed font-light" data-lang="hero_subtitle">
                     デジタルノマドイベントの運営は、もっと創造的であるべきです。<br>
                     DiscordとStripeを完全連携させ、集金から連絡までを自動化。<br>
                     コミュニティの熱量を最大化するソリューションです。
                 </p>
                 <div class="flex flex-col md:flex-row gap-4">
-                    <a href="#contact" class="bg-accent hover:bg-orange-600 text-white text-lg px-8 py-4 rounded-lg font-bold transition shadow-lg hover:shadow-xl text-center flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                    <a href="#contact" class="bg-accent hover:bg-orange-600 text-white text-lg px-8 py-4 rounded-lg font-bold transition shadow-lg hover:shadow-xl text-center flex items-center justify-center gap-2 transform hover:-translate-y-1" data-lang="hero_cta1">
                         <i class="fa-solid fa-comments"></i> 導入相談をする
                     </a>
-                    <a href="#features" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white text-lg px-8 py-4 rounded-lg font-bold transition text-center flex items-center justify-center gap-2">
+                    <a href="#features" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white text-lg px-8 py-4 rounded-lg font-bold transition text-center flex items-center justify-center gap-2" data-lang="hero_cta2">
                         <i class="fa-solid fa-desktop"></i> デモ画面を見る
                     </a>
                 </div>
@@ -110,11 +122,11 @@
     <section id="problem" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-main mb-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-main mb-6" data-lang="problem_title">
                     参加者が一定以上を超えたとき、<br>
                     運営は「作業」に忙殺されていませんか？
                 </h2>
-                <p class="text-gray-600">
+                <p class="text-gray-600" data-lang="problem_subtitle">
                     イベント規模が大きくなるにつれ、本来注力すべき「体験設計」よりも「オペレーション業務」に時間が奪われていきます。
                 </p>
             </div>
@@ -125,8 +137,8 @@
                     <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <i class="fa-solid fa-file-excel text-red-500 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center md:text-left">スプレッドシート地獄</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center md:text-left" data-lang="problem_card1_title">スプレッドシート地獄</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-lang="problem_card1_text">
                         参加者リスト、入金確認、アレルギー情報...。複数のシートを行き来し、手動でコピペを繰り返すミス誘発オペレーション。
                     </p>
                 </div>
@@ -135,8 +147,8 @@
                     <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <i class="fa-solid fa-bell text-yellow-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center md:text-left">終わらないリマインド</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center md:text-left" data-lang="problem_card2_title">終わらないリマインド</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-lang="problem_card2_text">
                         「明日開催です」「場所はこちらです」。DMやメンションでの個別連絡に追われ、当日の準備時間が削られていくストレス。
                     </p>
                 </div>
@@ -145,8 +157,8 @@
                     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <i class="fa-solid fa-money-bill-wave text-blue-600 text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center md:text-left">消込作業と個別連絡</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 text-center md:text-left" data-lang="problem_card3_title">消込作業と個別連絡</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm" data-lang="problem_card3_text">
                         銀行振込の照合、未払い者への催促。お金に関するやり取りは精神的負荷が高く、コミュニティの空気を重くします。
                     </p>
                 </div>
@@ -161,13 +173,13 @@
                 
                 <!-- Text Area -->
                 <div class="lg:w-1/2 order-2 lg:order-1">
-                    <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Our Solution</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-main mb-6 leading-tight">
+                    <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block" data-lang="solution_tag">Our Solution</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-main mb-6 leading-tight" data-lang="solution_title">
                         共通オペレーションを省人化し、<br>
                         コミュニティ活動に<br>
                         人の力を注ぐ。
                     </h2>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
+                    <p class="text-gray-600 mb-8 leading-relaxed" data-lang="solution_text">
                         Nomad Resort Opsは、Discordボットが優秀な秘書として機能します。参加者の確認から決済リンクの発行、参加者募集締切前のリマインド、決済未完了者の確認まで。
                         <br><br>
                         人がやるべきなのは「企画」と「熱狂」だけ。あとはツールにお任せください。
@@ -175,11 +187,11 @@
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-check-circle text-accent"></i>
-                            <span class="font-medium text-gray-700">Discord内で完結するシームレスな体験</span>
+                            <span class="font-medium text-gray-700" data-lang="solution_point1">Discord内で完結するシームレスな体験</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-check-circle text-accent"></i>
-                            <span class="font-medium text-gray-700">Stripe連携で入金確認をゼロに</span>
+                            <span class="font-medium text-gray-700" data-lang="solution_point2">Stripe連携で入金確認をゼロに</span>
                         </li>
                     </ul>
                 </div>
@@ -190,8 +202,8 @@
                         <!-- Placeholder Content -->
                         <div class="text-center p-6">
                             <i class="fa-brands fa-discord text-6xl text-gray-400 mb-4 group-hover:text-[#5865F2] transition-colors"></i>
-                            <p class="text-gray-500 font-bold text-lg">Discord連携 GIF動画エリア</p>
-                            <p class="text-xs text-gray-400 mt-2">※Botが自動応答する様子などを配置</p>
+                            <p class="text-gray-500 font-bold text-lg" data-lang="solution_gif_title">Discord連携 GIF動画エリア</p>
+                            <p class="text-xs text-gray-400 mt-2" data-lang="solution_gif_subtitle">※Botが自動応答する様子などを配置</p>
                         </div>
                         <!-- Mock UI Element decoration -->
                         <div class="absolute top-4 left-4 flex gap-2">
@@ -210,8 +222,8 @@
     <section id="features" class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block">Features</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-main mb-6">
+                <span class="text-accent font-bold tracking-wider uppercase text-sm mb-2 block" data-lang="features_tag">Features</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-main mb-6" data-lang="features_title">
                     運営の手間を「90%」削減する、<br>
                     3つの仕組み
                 </h2>
@@ -223,8 +235,8 @@
                     <div class="bg-main/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <i class="fa-solid fa-calendar-check text-main text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">参加表明・スケジュールの集約</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-lang="feature1_title">参加表明・スケジュールの集約</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-lang="feature1_text">
                         Discordのスタンプと同期。募集メッセージに指定したスタンプを押すだけで参加者リストが自動生成され、定員管理も自動化されます。
                     </p>
                 </div>
@@ -233,8 +245,8 @@
                     <div class="bg-main/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <i class="fa-brands fa-stripe text-main text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Stripe連携による全自動決済</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-lang="feature2_title">Stripe連携による全自動決済</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-lang="feature2_text">
                         参加表明と同時に決済リンクを送付。支払いが完了したユーザーと未支払いのユーザーを一括で管理可能です。
                     </p>
                 </div>
@@ -243,8 +255,8 @@
                     <div class="bg-main/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0">
                         <i class="fa-solid fa-chart-pie text-main text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">リアルタイム管理ダッシュボード</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3" data-lang="feature3_title">リアルタイム管理ダッシュボード</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed" data-lang="feature3_text">
                         参加者情報、決済状況などを可視化。次のイベント企画に必要なデータが常に手元にあります。
                     </p>
                 </div>
@@ -256,8 +268,8 @@
                     <!-- Placeholder Content -->
                     <div class="text-center">
                         <i class="fa-solid fa-table-columns text-6xl text-gray-700 mb-4 group-hover:text-gray-600 transition-colors"></i>
-                        <p class="text-gray-500 font-bold text-xl">Webアプリ 管理画面スクリーンショット</p>
-                        <p class="text-sm text-gray-600 mt-2">ダッシュボードや参加者一覧画面を配置</p>
+                        <p class="text-gray-500 font-bold text-xl" data-lang="features_screenshot_title">Webアプリ 管理画面スクリーンショット</p>
+                        <p class="text-sm text-gray-600 mt-2" data-lang="features_screenshot_subtitle">ダッシュボードや参加者一覧画面を配置</p>
                     </div>
                     
                     <!-- UI Mockup Overlay -->
@@ -281,11 +293,11 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-12">
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6">
+                    <h2 class="text-3xl font-bold mb-6" data-lang="authority_title">
                         現場を知り尽くした<br>
                         「NomadResort」のノウハウを実装
                     </h2>
-                    <p class="text-gray-300 leading-relaxed mb-8">
+                    <p class="text-gray-300 leading-relaxed mb-8" data-lang="authority_text">
                         私たちは単なるツール開発者ではありません。実際に国内外のデジタルノマドを受け入れ、数多くのイベントを運営してきました。<br>
                         現場で本当に必要な機能だけを厳選し、磨き上げています。
                     </p>
@@ -300,11 +312,11 @@
                     <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl border border-white/10">
                         <div class="flex items-start gap-4 mb-4">
                             <i class="fa-solid fa-quote-left text-accent text-3xl"></i>
-                            <p class="text-lg italic font-light">
+                            <p class="text-lg italic font-light" data-lang="authority_quote">
                                 ツール導入前は事務作業に追われ、参加者と話す時間がありませんでした。今は全て自動化され、本来やりたかった「交流」に100%集中できています。
                             </p>
                         </div>
-                        <p class="text-right text-sm text-gray-400 font-bold">- 沖縄デジタルノマド運営スタッフ</p>
+                        <p class="text-right text-sm text-gray-400 font-bold" data-lang="authority_quote_author">- 沖縄デジタルノマド運営スタッフ</p>
                     </div>
                 </div>
             </div>
@@ -316,34 +328,34 @@
         <div class="container mx-auto px-6">
             <!-- Price Box -->
             <div class="max-w-4xl mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-10 md:p-16 text-center border border-gray-200 shadow-lg mb-20 relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-accent text-white text-xs font-bold px-10 py-2 transform rotate-45 translate-x-8 translate-y-4 shadow-md">
+                <div class="absolute top-0 right-0 bg-accent text-white text-xs font-bold px-10 py-2 transform rotate-45 translate-x-8 translate-y-4 shadow-md" data-lang="price_badge">
                     RECOMMENDED
                 </div>
-                <h2 class="text-2xl font-bold text-gray-600 mb-4">スタンダードプラン</h2>
+                <h2 class="text-2xl font-bold text-gray-600 mb-4" data-lang="price_title">スタンダードプラン</h2>
                 <div class="flex items-baseline justify-center gap-2 mb-6">
-                    <span class="text-sm text-gray-500 font-bold">1イベントあたり</span>
+                    <span class="text-sm text-gray-500 font-bold" data-lang="price_per_event">1イベントあたり</span>
                     <span class="text-5xl md:text-6xl font-black text-main tracking-tight">10</span>
-                    <span class="text-xl font-bold text-gray-800">万円〜</span>
-                    <span class="text-sm text-gray-500">（税抜）</span>
+                    <span class="text-xl font-bold text-gray-800" data-lang="price_unit">万円〜</span>
+                    <span class="text-sm text-gray-500" data-lang="price_tax">（税抜）</span>
                 </div>
-                <p class="text-gray-600 mb-8 max-w-lg mx-auto">
+                <p class="text-gray-600 mb-8 max-w-lg mx-auto" data-lang="price_includes">
                     導入サポート、Discordサーバー設定、Stripe連携設定を含みます。<br>
                     ※規模やカスタマイズ内容により変動する場合があります。
                 </p>
-                <a href="#contact" class="inline-block bg-main hover:bg-indigo-900 text-white font-bold py-4 px-12 rounded-full transition shadow-lg transform hover:-translate-y-1">
+                <a href="#contact" class="inline-block bg-main hover:bg-indigo-900 text-white font-bold py-4 px-12 rounded-full transition shadow-lg transform hover:-translate-y-1" data-lang="price_cta">
                     料金・プランの詳細を聞く
                 </a>
             </div>
 
             <!-- Flow -->
             <div class="max-w-5xl mx-auto">
-                <h3 class="text-2xl font-bold text-center text-main mb-12">導入までの3ステップ</h3>
+                <h3 class="text-2xl font-bold text-center text-main mb-12" data-lang="flow_title">導入までの3ステップ</h3>
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8 relative">
                     <!-- Step 1 -->
                     <div class="flex-1 text-center relative z-10 bg-white p-4">
                         <div class="w-16 h-16 bg-main text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">1</div>
-                        <h4 class="text-lg font-bold mb-2">ヒアリング&設定</h4>
-                        <p class="text-gray-600 text-sm">現状の課題をヒアリングし、最適な運用フローをご提案します。(30分)</p>
+                        <h4 class="text-lg font-bold mb-2" data-lang="flow_step1_title">ヒアリング&設定</h4>
+                        <p class="text-gray-600 text-sm" data-lang="flow_step1_text">現状の課題をヒアリングし、最適な運用フローをご提案します。(30分)</p>
                     </div>
                     <!-- Connector Line (Desktop) -->
                     <div class="hidden md:block absolute top-8 left-0 w-full h-1 bg-gray-200 -z-0"></div>
@@ -351,15 +363,15 @@
                     <!-- Step 2 -->
                     <div class="flex-1 text-center relative z-10 bg-white p-4">
                         <div class="w-16 h-16 bg-main text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">2</div>
-                        <h4 class="text-lg font-bold mb-2">Discord準備</h4>
-                        <p class="text-gray-600 text-sm">Botの導入と権限設定を行います。既存サーバーへの追加も可能です。(1-2時間)</p>
+                        <h4 class="text-lg font-bold mb-2" data-lang="flow_step2_title">Discord準備</h4>
+                        <p class="text-gray-600 text-sm" data-lang="flow_step2_text">Botの導入と権限設定を行います。既存サーバーへの追加も可能です。(1-2時間)</p>
                     </div>
                     
                     <!-- Step 3 -->
                     <div class="flex-1 text-center relative z-10 bg-white p-4">
                         <div class="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg">3</div>
-                        <h4 class="text-lg font-bold mb-2 text-accent">イベント開催</h4>
-                        <p class="text-gray-600 text-sm">自動化スタート。あとは参加者とのコミュニケーションを楽しむだけです。</p>
+                        <h4 class="text-lg font-bold mb-2 text-accent" data-lang="flow_step3_title">イベント開催</h4>
+                        <p class="text-gray-600 text-sm" data-lang="flow_step3_text">自動化スタート。あとは参加者とのコミュニケーションを楽しむだけです。</p>
                     </div>
                 </div>
             </div>
@@ -369,19 +381,19 @@
     <!-- G. Footer CTA (Closing) -->
     <section id="contact" class="py-24 bg-gray-50 border-t border-gray-200">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-main mb-8 leading-tight">
-                オペレーション作業はツールに任せて、<br>
+            <h2 class="text-3xl md:text-5xl font-bold text-main mb-8 leading-tight" data-lang="footer_cta_title">
+                オペレーション業務はツールに任せて、<br>
                 最高の体験を参加者に届けましょう。
             </h2>
-            <p class="text-gray-600 mb-12 text-lg">
+            <p class="text-gray-600 mb-12 text-lg" data-lang="footer_cta_subtitle">
                 まずは現状の運用フローをお聞かせください。<br>
                 どれくらい工数が削減できるか、カスタマイズの可能性などお答えします。
             </p>
             <div class="flex flex-col justify-center items-center gap-6">
-                <a href="#" class="bg-accent hover:bg-orange-600 text-white text-xl md:text-2xl px-12 py-6 rounded-xl font-bold transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 w-full md:w-auto animate-pulse-slow">
+                <a href="#" class="bg-accent hover:bg-orange-600 text-white text-xl md:text-2xl px-12 py-6 rounded-xl font-bold transition shadow-xl hover:shadow-2xl transform hover:-translate-y-1 w-full md:w-auto animate-pulse-slow" data-lang="footer_cta_button">
                     まずは無料相談・デモ依頼をする <i class="fa-solid fa-arrow-right ml-2"></i>
                 </a>
-                <p class="text-sm text-gray-500">※無理な勧誘は一切いたしません</p>
+                <p class="text-sm text-gray-500" data-lang="footer_cta_note">※無理な勧誘は一切いたしません</p>
             </div>
         </div>
     </section>
@@ -394,7 +406,7 @@
                     <i class="fa-solid fa-layer-group text-2xl"></i>
                     <span class="text-xl font-bold tracking-tight">Nomad Resort Ops</span>
                 </div>
-                <div class="text-gray-400 text-sm">
+                <div class="text-gray-400 text-sm" data-lang="footer_copyright">
                     &copy; 2025 NomadResort Inc. All rights reserved.
                 </div>
             </div>
@@ -402,6 +414,7 @@
     </footer>
 
     <!-- Simple Animation Script -->
+    <script src="language.js"></script>
     <script>
         // Optional: Simple intersection observer for fade-in effect
         document.addEventListener('DOMContentLoaded', () => {
