@@ -34,3 +34,22 @@
 .language-switcher:hover .language-dropdown {
     display: block;
 }
+
+/* Modal Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#contact-modal:not(.hidden) {
+    animation: fadeIn 0.2s ease-out forwards;
+}
+
+#contact-modal:not(.hidden) > .bg-white {
+    animation: scaleUp 0.2s ease-out forwards;
+}

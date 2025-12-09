@@ -57,6 +57,11 @@ const translations = {
         footer_cta_button: "First, request a free consultation/demo <i class='fa-solid fa-arrow-right ml-2'></i>",
         footer_cta_note: "*We will not engage in any unreasonable solicitation.",
         footer_copyright: "&copy; 2025 NomadResort Inc. All rights reserved.",
+        modal_title: "Contact & Inquiry",
+        modal_name: "Name",
+        modal_company: "Affiliation (Company Name)",
+        modal_email: "Contact (Email Address)",
+        modal_submit: "Submit",
     },
     zh: {
         problem: "问题",
@@ -116,6 +121,11 @@ const translations = {
         footer_cta_button: "首先，请求免费咨询/演示 <i class='fa-solid fa-arrow-right ml-2'></i>",
         footer_cta_note: "*我们不会进行任何不合理的招揽。",
         footer_copyright: "© 2025 NomadResort Inc. 保留所有权利。",
+        modal_title: "咨询与问询",
+        modal_name: "姓名",
+        modal_company: "所属（公司名称）",
+        modal_email: "联系方式（电子邮件地址）",
+        modal_submit: "提交",
     },
     ja: {
         problem: "課題",
@@ -175,6 +185,11 @@ const translations = {
         footer_cta_button: "まずは無料相談・デモ依頼をする <i class='fa-solid fa-arrow-right ml-2'></i>",
         footer_cta_note: "※無理な勧誘は一切いたしません",
         footer_copyright: "&copy; 2025 NomadResort Inc. All rights reserved.",
+        modal_title: "導入相談・お問い合わせ",
+        modal_name: "お名前",
+        modal_company: "所属（会社名）",
+        modal_email: "連絡先（メールアドレス）",
+        modal_submit: "送信する",
     }
 };
 
@@ -187,9 +202,80 @@ function changeLanguage(lang) {
     });
 }
 
-// Set initial language
+// Set initial language and add Modal Logic
 document.addEventListener('DOMContentLoaded', () => {
+    // Language switcher logic
     const userLang = navigator.language || navigator.userLanguage;
     const lang = userLang.startsWith('ja') ? 'ja' : userLang.startsWith('zh') ? 'zh' : 'en';
     changeLanguage(lang);
+
+    // Modal Logic
+    const modal = document.getElementById('contact-modal');
+    if (modal) {
+        const openModalButtons = document.querySelectorAll('.open-modal-button');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const contactForm = document.getElementById('contact-form');
+
+        const openModal = () => {
+            modal.classList.remove('hidden');
+        };
+
+        const closeModal = () => {
+            modal.classList.add('hidden');
+        };
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault(); // Stop anchor link navigation
+                openModal();
+            });
+        });
+
+        if (closeModalButton) {
+            closeModalButton.addEventListener('click', closeModal);
+        }
+
+        // Close modal when clicking on the background
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                formData.append('_subject', '【Nomad Resort Ops】導入相談フォームよりお問い合わせ');
+
+                try {
+                    const response = await fetch('https://formspree.io/f/mdkqlpyw', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        alert('お問い合わせありがとうございます。内容を確認の上、担当者よりご連絡いたします。');
+                        contactForm.reset();
+                        closeModal();
+                    } else {
+                        const data = await response.json();
+                        if (data.errors) {
+                            const errorMessage = data.errors.map(error => error.message).join(', ');
+                            alert(`フォームの送信に失敗しました: ${errorMessage}`);
+                        } else {
+                            alert('フォームの送信に失敗しました。時間をおいて再度お試しください。');
+                        }
+                    }
+                } catch (error) {
+                    console.error('フォーム送信中にエラーが発生しました:', error);
+                    alert('ネットワークエラーが発生しました。フォームを送信できませんでした。');
+                }
+            });
+        }
+    }
 });
