@@ -231,6 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // For debugging the footer button
+        const footerCtaButton = document.getElementById('footer-cta-open-modal-button');
+        if (footerCtaButton) {
+            footerCtaButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                openModal();
+            });
+        }
+
         if (closeModalButton) {
             closeModalButton.addEventListener('click', closeModal);
         }
